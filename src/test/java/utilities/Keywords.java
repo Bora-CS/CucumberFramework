@@ -17,7 +17,7 @@ import org.openqa.selenium.interactions.Actions;
 public class Keywords {
 	private static WebDriver driver;
 	
-	{
+	static {
 		try {
 			driver = DriverFactory.getInstance();
 		} catch (Exception e) {
@@ -33,19 +33,6 @@ public class Keywords {
 		}
 	}
 
-	public static void startTest(String url) {
-		try {
-//			DriverFactory.startChromeDriver();
-			driver.navigate().to(url);
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-	}
-
-	public static void endTest() {
-//		DriverFactory.stopChromeDriver();
-	}
-
 	public static void print(Object message) {
 		System.out.println(message);
 	}
@@ -58,7 +45,6 @@ public class Keywords {
 		driver.findElement(locator).sendKeys(keysToSend);
 	}
 
-	// by Sergio
 	public static void navigateBack() {
 		driver.navigate().back();
 	}
