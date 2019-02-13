@@ -23,6 +23,8 @@ public class DriverFactory {
 	}
 	
 	public static void cleanUp() {
+		driver.close();
+		driver.quit();
 		driver = null;
 	}
 
