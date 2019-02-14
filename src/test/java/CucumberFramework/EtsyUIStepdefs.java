@@ -20,13 +20,9 @@ public class EtsyUIStepdefs {
 	public static WebDriver driver;
 	
 
-	@Before
-	public void setUpUITest() throws Exception {
-		driver = DriverFactory.getInstance();
-	}
-
 	@Given("^I navigate to Etsy\\.com homepage$")
 	public void i_navigate_to_Etsy_com_homepage() throws Exception {
+		driver = DriverFactory.getInstance();
 		driver.get("https://www.etsy.com/");
 		assertTrue(driver.getTitle().contains("Etsy"));
 	}
@@ -41,18 +37,14 @@ public class EtsyUIStepdefs {
 	public void i_should_see_results_related_to_my_search() throws Exception {
 		List<WebElement> cards = driver.findElements(By.cssSelector(".v2-listing-card__info > div > h2"));
 		System.out.println(cards.size());
-		for (WebElement card : cards) {
-			System.out.println("Checking if title contails iPhone: " + card.getText() );
-			assertTrue(card.getText().toLowerCase().contains("phone"));
+		try {
+			for (WebElement card : cards) {
+				System.out.println("Checking if title contails iPhone: " + card.getText());
+				assertTrue(card.getText().toLowerCase().contains("phone"));
+			}
+		} finally {
+			Keywords.waitFor(1);
+			DriverFactory.cleanUp();
 		}
 	}
-
-	@After
-	public void cleanUp() {
-		driver.close();
-		driver.quit();
-		Keywords.waitFor(1);
-		DriverFactory.cleanUp();
-	}
-
 }

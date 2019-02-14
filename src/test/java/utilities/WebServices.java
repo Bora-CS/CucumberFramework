@@ -1,6 +1,7 @@
 package utilities;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.json.simple.JSONObject;
@@ -12,6 +13,9 @@ import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+
+
+import static utilities.Constants.BORA_API_URL;
 
 public class WebServices {
 
@@ -36,7 +40,6 @@ public class WebServices {
 		token = jp.get("token");
 	}
 
-	
 	public static void addExperience(Map<String, String> addExperienceData) throws Exception {
 		RestAssured.baseURI = BORA_API_URL;
 		RequestSpecification request = RestAssured.given();
@@ -56,7 +59,6 @@ public class WebServices {
 		addExperienceResponse = request.post("/profile/experience");
 	}
 
-	
 	public static void addExperienceValidation(Map<String, String> expectedResult) {
 		int actualStatusCode = addExperienceResponse.getStatusCode();
 		int expectedStatusCode = Integer.valueOf(expectedResult.get("StatusCode"));
@@ -67,7 +69,6 @@ public class WebServices {
 		ArrayList<String> titles = jp.get("experience.title");
 
 		Assert.assertTrue(titles.contains(expectedResult.get("Title")));
-
 	}
 
 }
