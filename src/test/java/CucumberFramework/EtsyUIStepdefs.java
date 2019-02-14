@@ -17,7 +17,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class EtsyUIStepdefs {
-	private static WebDriver driver;
+	public static WebDriver driver;
+	
 
 	@Given("^I navigate to Etsy\\.com homepage$")
 	public void i_navigate_to_Etsy_com_homepage() throws Exception {

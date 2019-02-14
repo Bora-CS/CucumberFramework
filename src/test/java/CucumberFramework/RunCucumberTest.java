@@ -6,6 +6,6 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = {"pretty"},
-tags = {"@Etsy"})
+tags = {"@API"})
 public class RunCucumberTest {
 }
