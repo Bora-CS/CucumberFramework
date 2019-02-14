@@ -17,7 +17,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class EtsyUIStepdefs {
-	private static WebDriver driver;
+	public static WebDriver driver;
+	
 
 	@Before
 	public void setUpUITest() throws Exception {

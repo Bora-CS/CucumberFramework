@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>CucumberFramework</groupId>
+<groupId>CucumberFramework</groupId>
     <artifactId>CucumberFramework</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -43,6 +43,27 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        
+        <dependency>
+	      <groupId>io.rest-assured</groupId>
+	      <artifactId>rest-assured</artifactId>
+	      <version>3.3.0</version>
+	      <scope>test</scope>
+		</dependency>
+		
+		<dependency>
+	      <groupId>io.rest-assured</groupId>
+	      <artifactId>json-schema-validator</artifactId>
+	      <version>3.3.0</version>
+	      <scope>test</scope>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.googlecode.json-simple</groupId>
+		    <artifactId>json-simple</artifactId>
+		    <version>1.1.1</version>
+		</dependency>
+		
     </dependencies>
 
     <build>
