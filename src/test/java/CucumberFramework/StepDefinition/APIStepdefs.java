@@ -1,4 +1,4 @@
-package CucumberFramework;
+package CucumberFramework.StepDefinition;
 
 import cucumber.api.DataTable;
 import cucumber.api.PendingException;

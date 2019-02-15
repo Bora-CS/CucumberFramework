@@ -1,4 +1,4 @@
-package CucumberFramework;
+package CucumberFramework.Runner;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
