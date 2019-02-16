@@ -55,6 +55,46 @@ public class ExcelUtils {
 
 	}
 
+	public static XSSFWorkbook openWorkbook(String fileName) {
+		XSSFWorkbook workbook = null;
+		try {
+			File file = new File(Constants.EXCEL_FILES + fileName + ".xlsx");
+			FileInputStream is = new FileInputStream(file);
+			workbook = new XSSFWorkbook(is);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		return workbook;
+	}
+	
+	public static void saveAndCloseWorkbook (XSSFWorkbook workbook, String fileName) {
+		try {
+			FileOutputStream os = new FileOutputStream(Constants.EXCEL_FILES + fileName + ".xlsx");
+			workbook.write(os);
+			os.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void createEmptySheetWithName(String fileName, String sheetName) {
+		try {
+
+			File file = new File(Constants.EXCEL_FILES + fileName + ".xlsx");
+			FileInputStream is = new FileInputStream(file);
+			XSSFWorkbook workbook = new XSSFWorkbook(is);
+
+			XSSFSheet sheet = workbook.createSheet(sheetName);
+
+			FileOutputStream os = new FileOutputStream(Constants.EXCEL_FILES + fileName + ".xlsx");
+			workbook.write(os);
+			os.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	public static void createSheetWithName(String filePath, String sheetName, int numberOfRows, int numberOfCols) {
 		try {
 			File file = new File(filePath);
